@@ -1371,7 +1371,7 @@ function sendIPhoneNotification(sub,mes){   //Send a push notification on your I
     var url = "https://alertzy.app/send?accountKey=m143fegulr79ila&title="+encodeURIComponent(sub)+"&message="+encodeURIComponent(mes);
     console.log("Requesting url: "+url);
     request({url: url, json:true},(error,data) =>{
-        console.log("Alertzy Message Sent!");
+        console.log("Alertzy Message Sent!");//
     });
 }
 
