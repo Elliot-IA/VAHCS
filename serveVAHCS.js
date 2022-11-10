@@ -625,7 +625,7 @@ function buildTimestamp(){
         hour = hour+"pm";
     }
 
-    return year+"-"+month+"-"+day+"   "+hour+":"+minuete+":"+second+"."+millisecond;
+    return year+"-"+month+"-"+day+"   "+hour+":"+minuete+":"+second+"."+millisecond;//
 }
 function strAdjust(n){
     return (n<10)?"-"+n:n;
