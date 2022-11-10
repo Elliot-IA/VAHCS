@@ -1367,7 +1367,7 @@ app.get("/preTimesheetReminder", function (req, res) {
         res.send("done");
     });
 });
-function sendIPhoneNotification(sub,mes){   //Send a push notification on your IPhone!
+function sendIPhoneNotification(sub,mes){   //Send a push notification on your IPhone!//
     var url = "https://alertzy.app/send?accountKey=m143fegulr79ila&title="+encodeURIComponent(sub)+"&message="+encodeURIComponent(mes);
     console.log("Requesting url: "+url);
     request({url: url, json:true},(error,data) =>{
