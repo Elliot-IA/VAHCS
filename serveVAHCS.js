@@ -637,7 +637,7 @@ var settingsToUse = deploymentSettings;
 
 var universalPage = null;
 function sendMyselfAnEmail_old(){
-    // puppeteer usage as normal
+    // puppeteer usage as normal//
     puppeteer.launch(settingsToUse).then(async browser => {
         const page = await browser.newPage();
         universalPage = page;
