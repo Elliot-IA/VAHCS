@@ -359,7 +359,7 @@ app.get("/sniffTrigger", function(req, res){
     var combinedTokens = "";
     nullTokens.forEach((nullToken)=>{combinedTokens+=nullToken});
     if(combinedTokens.indexOf(queryObject.ip) == -1){
-        //sendEmailToElliot("Sniff from "+queryObject.source+"!", "Sir, I detected someone loading "+queryObject.source+" with this token: "+queryObject.ip+"\nThis token was not listed as null. Null tokens are: "+JSON.stringify(nullTokens));
+        sendEmailToElliot("Sniff from "+queryObject.source+"!", "Sir, I detected someone loading "+queryObject.source+" with this token: "+queryObject.ip+"\nThis token was not listed as null. Null tokens are: "+JSON.stringify(nullTokens));
         console.log("Command send from non-null ip, email sent!");
     }else{
         console.log("Command send from null token, email not sent");
