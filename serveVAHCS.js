@@ -12,6 +12,7 @@ const dateAndTime = require("date-and-time");
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const imageDataURI = require('image-data-uri'); 
 const QRCode = require('qrcode');
+const { exec } = require('child_process');
 
 const puppeteer = require('puppeteer');   //-extra')
 //const StealthPlugin = require('puppeteer-extra-plugin-stealth')
@@ -83,9 +84,12 @@ app.post("/", function(req, res){
 
 ////////////////Personal Automations////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.get("/timesheet", function(req, res){       //Fill out your timesheet
-    sendEmailToElliot("Attempting to fill out your timesheets", "I'm logging 12 hours of work on this week's Andesrson Labs timesheet and logging 11 to 3 shifts on Monday Thursday and Friday, and I will notify if I was or was not sucsessful...");
-    fillOutExceedLabTimesheet();
-    res.send("Filling out your timesheets...");
+    var yourscript = exec('node ./FillOutTimesheet.js',
+                          (error, stdout, stderr) => {
+        console.log("stdou: "+stdout);
+        console.log("stderr: "+stderr);
+        res.send({result:"Refresh Complete! (:"});//Failed /:"});
+    });
 });
 app.get("/ip", function(req, res){       //Get IP Address Test
     //const ipAddress = IP.address();
